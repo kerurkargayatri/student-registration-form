@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 25px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <br>
+
+    <input type="email" id="email" placeholder="Enter Email">
+    <br>
+
+    <input type="text" id="course" placeholder="Enter Course">
+    <br>
+
+    <button onclick="registerStudent()">Register</button>
+
+    <div id="result"></div>
+
+    <script>
+function registerStudent() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let course = document.getElementById("course").value;
+
+    if (name === "" || email === "" || course === "") {
+        document.getElementById("result").innerHTML =
+            "Please enter all details ⚠️";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Registration Successful! 🎉<br><br>" +
+        "Name: " + name + "<br>" +
+        "Email: " + email + "<br>" +
+        "Course: " + course;
+}
+</script>
+    </script>
+
+</body>
+</html>
