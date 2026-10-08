@@ -4,48 +4,103 @@
     <title>Student Registration</title>
 
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin-top: 50px;
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        input {
-            padding: 10px;
-            margin: 8px;
-            width: 250px;
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
         }
 
         button {
-            padding: 10px 25px;
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background: #5568d8;
         }
 
         #result {
             margin-top: 20px;
-            font-size: 18px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f2f2f2;
+            line-height: 1.6;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Student Registration Form</h1>
+<div class="container">
 
-    <input type="text" id="name" placeholder="Enter Name">
-    <br>
+    <h1>🎓 Student Registration</h1>
 
-    <input type="email" id="email" placeholder="Enter Email">
-    <br>
+    <label>Student Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
 
-    <input type="text" id="course" placeholder="Enter Course">
-    <br>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
 
-    <button onclick="registerStudent()">Register</button>
+    <label>Course</label>
+    <select id="course">
+        <option value="">Select Course</option>
+        <option>BCA</option>
+        <option>BBA</option>
+        <option>B.Sc</option>
+        <option>MCA</option>
+    </select>
+
+    <button onclick="registerStudent()">Register Now</button>
 
     <div id="result"></div>
 
-    <script>
+</div>
+
+<script>
+
 function registerStudent() {
 
     let name = document.getElementById("name").value;
@@ -53,19 +108,21 @@ function registerStudent() {
     let course = document.getElementById("course").value;
 
     if (name === "" || email === "" || course === "") {
+
         document.getElementById("result").innerHTML =
-            "Please enter all details ⚠️";
+            "⚠️ Please enter all details.";
+
         return;
     }
 
     document.getElementById("result").innerHTML =
-        "Registration Successful! 🎉<br><br>" +
-        "Name: " + name + "<br>" +
-        "Email: " + email + "<br>" +
-        "Course: " + course;
+        "✅ Registration Successful!<br><br>" +
+        "<b>Name:</b> " + name + "<br>" +
+        "<b>Email:</b> " + email + "<br>" +
+        "<b>Course:</b> " + course;
 }
+
 </script>
-    </script>
 
 </body>
 </html>
